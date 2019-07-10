@@ -25,8 +25,16 @@ server.get('/nashi', function( req, res ) {
 });
 
 server.get('/',function(req,res){
-  let sorting=req.query.sorting||'class';
-  let query='select
+    let sorting=req.query.sorting||'class';
+    let query='select units.id, units.name, class.start_class from units inner join class on units.class_id = class.id;';
+    console.log(query);
+    connection.query( query, (error, rows, fields) => {
+        if( error ) {
+            console.log('Query Error');
+        }
+        res.render('sql1.ejs',{ content: rows });
+    });
+});
 
 server.get('/baseball', function( req, res ){
     res.send( 'はらへった' );
