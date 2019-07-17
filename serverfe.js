@@ -11,10 +11,10 @@ var connection = mysql.createConnection({
     database: 'web'
 });
 
-server.get('/', function(req,res){
-    let sorting=req.query.sorting||'class';
-    let query='select units.id, units.name, class.start_class from units inner join class on units.class_id = class.id;';
-    console.log(query);
+server.get('/', function( req, res ){
+    let sorting = req.query.sorting || 'class';
+    let query = 'select units.id, units.name, class.start_class from units inner join class on units.class_id = class.id desc limit 10;';
+    console.log( query );
     connection.query( query, (error, rows, fields) => {
         if( error ) {
             console.log('Query Error');
