@@ -23,6 +23,19 @@ server.get('/', function( req, res ){
     });
 });
 
+server.get('/status', function( req, res ){
+    let stasort = req.query.stasort || 'Lv';
+    let stanumber = req.query.stanumber || 10;
+    let query = 'select units.id, units.name, status.Lv, status.HP, status.str, status.skl, status.spd, status.lck, status.def, status.res, status.con, status.mov, from units inner join status on units.status_id = status.id order by ' + stasort + ' desc limit ' + stanumber + ';';
+    console.log( query );
+    connection.query( query, (error, rows, fields) => {
+        if( error ) {
+            console.log('Query Error');
+        }
+        res.render('sql2.ejs',{ content: rows });
+    });
+});
+
 server.get('/baseball', function( req, res ){
     res.send( 'はらへった' );
 });
