@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
 
 server.get('/', function( req, res ){
     let tynumber = req.query.tynumber || 4;
-    let query = 'select units.id, units.name, class.start_class, class.weapon, class.class_change from units inner join class on units.class_id = class.id and type = ' + tynumber + ' order by units.id limit 10;';
+    let query = 'select units.id, units.name, class.start_class, class.weapons, class.class_change from units inner join class on units.class_id = class.id and type = ' + tynumber + ' order by units.id limit 10;';
     console.log( query );
     connection.query( query, (error, rows, fields) => {
         if( error ) {
