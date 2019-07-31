@@ -13,9 +13,9 @@ var connection = mysql.createConnection({
 
 server.get('/', function( req, res ){
     let tynumber = req.query.tynumber || 4;
-    let query = 'select units.id, units.name, class.start_class, class.weapons, class.class_change from units inner join class on units.class_id = class.id and type = ' + tynumber + ' order by units.id;';
-    console.log( query );
-    connection.query( query, (error, rows, fields) => {
+    let query1 = 'select units.id, units.name, class.start_class, class.weapons, class.class_change from units inner join class on units.class_id = class.id and type = ' + tynumber + ' order by units.id;';
+    console.log( query1 );
+    connection.query( query1, (error, rows, fields) => {
         if( error ) {
             console.log('Query Error');
         }
@@ -26,9 +26,9 @@ server.get('/', function( req, res ){
 server.get('/status', function( req, res ){
     let stasort = req.query.stasort || 'Lv';
     let stanumber = req.query.stanumber || 10;
-    let query = 'select units.id, units.name, status.Lv, status.HP, status.str, status.skl, status.spd, status.lck, status.def, status.res, status.con, status.mov, from units inner join status on units.status_id = status.id order by status.' + stasort + ' desc limit ' + stanumber + ';';
-    console.log( query );
-    connection.query( query, (error, rows, fields) => {
+    let query2 = 'select units.id, units.name, status.Lv, status.HP, status.str, status.skl, status.spd, status.lck, status.def, status.res, status.con, status.mov, from units inner join status on units.status_id = status.id order by status.Lv desc limit 10;';
+    console.log( query2 );
+    connection.query( query2, (error, rows, fields) => {
         if( error ) {
             console.log('Query Error');
         }
