@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+    <table>
+    <tr>
+    <td>ID</td>
+    <td>名前</td>
+    <td>HP</td>
+    <td>力/魔力</td>
+    <td>技</td>
+    <td>速さ</td>
+    <td>幸運</td>
+    <td>守備</td>
+    <td>魔防</td>
+    </tr>
+        <% for( let result3 of content ) { %>
+        <tr>
+            <td><%= result3.id %></td>
+            <td><%= result3['name'] %></td>
+            <td><%= result3.HP_rate %></td>
+            <td><%= result3.str_rate %></td>
+            <td><%= result3.skl_rate %></td>
+            <td><%= result3.spd_rate %></td>
+            <td><%= result3.lck_rate %></td>
+            <td><%= result3.def_rate %></td>
+            <td><%= result3.res_rate %></td>
+        </tr>
+        <% } %>
+    </table>
+    <form action="/growth" method="get">
+        ソート：<select name="growsort">
+            <option value="HP">HP</option>
+            <option value="str">力</option>
+            <option value="skl">技</option>
+            <option value="spd">速さ</option>
+            <option value=“lck”>幸運</option>
+            <option value=“def”>守備</option>
+            <option value=“res”>魔防</option>
+        </select>
+        表示数：<input type="text" name="grownumber" size="10">
+        <input type="submit" value="並び替える">
+    </form>
+</body>
+</html>
