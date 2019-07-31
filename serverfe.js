@@ -36,6 +36,19 @@ server.get('/status', function( req, res ){
     });
 });
 
+server.get('/growth', function( req, res ){
+    let growsort = req.query.growsort || 'str';
+    let grownumber = req.query.grownumber || 10;
+    let query3 = 'select units.id, units.name, growth_rate.HP_rate, growth_rate.str_rate, growth_rate.skl_rate, growth_rate.spd_rate, growth_rate.lck_rate, growth_rate.def_rate, growth_rate.res_rate from units inner join growth_rate on units.growth_id = growth_rate.id order by status.' + stasort + ' desc limit ' + stanumber + ';';
+    console.log( query3 );
+    connection.query( query3, (error, rows, fields) => {
+        if( error ) {
+            console.log('Query Error');
+        }
+        res.render('sql3.ejs',{ content: rows });
+    });
+});
+
 server.get('/baseball', function( req, res ){
     res.send( 'はらへった' );
 });
