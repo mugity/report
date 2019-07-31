@@ -26,7 +26,7 @@ server.get('/', function( req, res ){
 server.get('/status', function( req, res ){
     let stasort = req.query.stasort || 'Lv';
     let stanumber = req.query.stanumber || 10;
-    let query2 = 'select units.id, units.name, status.Lv, status.HP, status.str, status.skl, status.spd, status.lck, status.def, status.res, status.con, status.mov, from units inner join status on units.status_id = status.id order by status.Lv desc limit 10;';
+    let query2 = 'select units.id, units.name, status.Lv, status.HP, status.str, status.skl, status.spd, status.lck, status.def, status.res, status.con, status.mov from units inner join status on units.status_id = status.id order by status.Lv desc limit 10;';
     console.log( query2 );
     connection.query( query2, (error, rows, fields) => {
         if( error ) {
