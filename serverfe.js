@@ -49,10 +49,6 @@ server.get('/growth', function( req, res ){
     });
 });
 
-server.get('/baseball', function( req, res ){
-    res.send( 'はらへった' );
-});
-
 server.listen( 80, function() {
     console.log( 'listening on port 80' );
 });
