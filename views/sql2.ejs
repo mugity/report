@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+    <table>
+        <% for( let result of content ) { %>
+        <tr>
+            <td><%= result.id %></td>
+            <td><%= result['name'] %></td>
+            <td><%= result['Lv'] %></td>
+            <td><%= result['HP'] %></td>
+            <td><%= result['str'] %></td>
+            <td><%= result['skl'] %></td>
+            <td><%= result['spd'] %></td>
+            <td><%= result['lck'] %></td>
+            <td><%= result['def'] %></td>
+            <td><%= result['res'] %></td>
+            <td><%= result['con'] %></td>
+            <td><%= result['mov'] %></td>
+        </tr>
+        <% } %>
+    </table>
+    <form action="/" method="get">
+        ソート：<select name="stasort">
+            <option value="Lv">レベル</option>
+            <option value="HP">HP</option>
+            <option value="str">力</option>
+            <option value="skl">技</option>
+            <option value="spd">速さ</option>
+            <option value=“lck”>幸運</option>
+            <option value=“def”>守備</option>
+            <option value=“res”>魔防</option>
+            <option value=“con”>体格</option>
+            <option value=“mov”>移動力</option>
+            表示数：<input type="text" name="stanumber" size="10">
+            <input type="submit" value="並び替える">
+        </select>
+    </form>
+</body>
+</html>
