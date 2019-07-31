@@ -5,20 +5,20 @@
 </head>
 <body>
     <table>
-        <% for( let result of content ) { %>
+        <% for( let result2 of content ) { %>
         <tr>
-            <td><%= result.id %></td>
-            <td><%= result['name'] %></td>
-            <td><%= result['Lv'] %></td>
-            <td><%= result['HP'] %></td>
-            <td><%= result['str'] %></td>
-            <td><%= result['skl'] %></td>
-            <td><%= result['spd'] %></td>
-            <td><%= result['lck'] %></td>
-            <td><%= result['def'] %></td>
-            <td><%= result['res'] %></td>
-            <td><%= result['con'] %></td>
-            <td><%= result['mov'] %></td>
+            <td><%= result2.id %></td>
+            <td><%= result2['name'] %></td>
+            <td><%= result2['Lv'] %></td>
+            <td><%= result2['HP'] %></td>
+            <td><%= result2['str'] %></td>
+            <td><%= result2['skl'] %></td>
+            <td><%= result2['spd'] %></td>
+            <td><%= result2['lck'] %></td>
+            <td><%= result2['def'] %></td>
+            <td><%= result2['res'] %></td>
+            <td><%= result2['con'] %></td>
+            <td><%= result2['mov'] %></td>
         </tr>
         <% } %>
     </table>
@@ -34,9 +34,9 @@
             <option value=“res”>魔防</option>
             <option value=“con”>体格</option>
             <option value=“mov”>移動力</option>
-            表示数：<input type="text" name="stanumber" size="10">
-            <input type="submit" value="並び替える">
         </select>
+        表示数：<input type="text" name="stanumber" size="10">
+        <input type="submit" value="並び替える">
     </form>
 </body>
 </html>
