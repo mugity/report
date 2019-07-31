@@ -24,6 +24,7 @@ server.get('/', function( req, res ){
 });
 
 server.get('/status', function( req, res ){
+    res.send( 'ID 名前 レベル HP 力 技 速さ 幸運 守備 魔防 体格 移動' );
     let stasort = req.query.stasort || 'Lv';
     let stanumber = req.query.stanumber || 10;
     let query2 = 'select units.id, units.name, status.Lv, status.HP, status.str, status.skl, status.spd, status.lck, status.def, status.res, status.con, status.mov from units inner join status on units.status_id = status.id order by status.' + stasort + ' desc limit ' + stanumber + ';';
